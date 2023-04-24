@@ -1,0 +1,159 @@
+{% extends "layout.html"%}
+{% block title %}
+Chilli Plant Disease Recognition
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+    <header class="text-white text-center">
+        <h1 class="display-4">Chilli Plant Disease Detection</h1>
+        <p class="lead mb-5">You will see the prediction of the input image.</p>
+    </header>
+
+    <hr>
+    <br>
+    <header class="text-white text-center">
+        <h1 class="display-5">Prediction</h1>
+        {% if predictions %}
+        <h2 class="display-4 text-dark font-weight-bold" id="document-title">{{predictions}}</h2>
+        <br>
+        <hr>
+        <br>
+        {% if predictions == "Leaf Curl" %}
+        <!-- <form action="{{ url_for('show_static_pdf') }}" enctype="multipart/form-data" method="GET">
+            <input type="submit"/>
+        </form> -->
+        <!-- <a href="templates\leaf_curl.pdf" download="newfilename">Download the pdf</a> -->
+        <!-- <object data="templates\leaf_curl.pdf" type="application/pdf" width="300" height="200">
+            <a href="templates\leaf_curl.pdf">test.pdf</a>
+        </object> -->
+
+        <!-- <embed src="leaf_curl.pdf" type="application/pdf"> -->
+
+        <div class="container" style="width:800px; text-align: justify;">
+        <h2 class="text-center" style="color: rgb(159, 255, 159);">More about leaf curl</h2>
+        <h4 class="text-dark">What is it?</h4>
+        <p>Chilli leaf curl virus is a DNA virus from the genus Begomovirus and
+            family Geminiviridae.</p>
+            <h4 class="text-dark">What deficiency causes leaf curl in chilli leaf?</h4>
+            <p>When plants lack calcium, leaves cannot develop properly and will
+                begin to appear curled or bubbly.</p>
+        <h4 class="text-dark">Symptoms</h4>
+        <ul>
+            <li>Upward curling, puckering, and bunching of leaves</li>
+            <li>The leaves are also reduced in size</li>
+            <li>Severely affected plants produce fewer, smaller, and deformed
+                fruits</li>
+            <li>Significant yield losses</li>
+        </ul>
+        <h4 class="text-dark">How to Control</h4>
+        <ol>
+            <li>Apply Carbofuran 3G @ 4-5 Kg/acre in the main field to control
+                sucking complex and insect vectors selectively</li>
+                <li>Spray the crop with systemic insecticides, Dimethoate 2ml of
+                    Acephate 1g per litre of water.</li>
+        </ol>
+        </div>
+        
+        {% elif predictions == "Antracnose" %}
+        
+        <div class="container" style="width:800px; text-align: justify;">
+            <h2 class="text-center" style="color: rgb(159, 255, 159);">More about Antracnose</h2>
+            <h4 class="text-dark">What is it?</h4>
+            <p>Anthracnose disease is caused by Colletotrichum species which
+                belongs to the Kingdom Fungi; Phylum Ascomycota, Class
+                Sordariomycetes; Order Phyllachorales; and Family Phyllachoraceae.</p>
+            <h4 class="text-dark">What deficiency causes leaf curl in chilli leaf?</h4>
+            <p>Anthracnose is caused by the Colletotrichum capsici.</p>
+            <h4 class="text-dark">Symptoms</h4>
+            <ul>
+                <li>Minor cosmetic spotting of leaves</li>
+                <li>Blighting of leaves</li>
+                <li>Spots become necrotic with brown centre with chlorotic borders</li>
+                <li>Tender shoots and dieback of twigs and branches</li>
+            </ul>
+            <h4 class="text-dark">How to Control</h4>
+            <ol>
+                <li>Seed treatment - thiram 2 kg/ha or zineb 2.5 kg/ha</li>
+                <li>Three sprayings with captan 0.2 %- 1st spraying - just before
+                    flowering, 2nd at the time of fruit formation and 3rd - fortnight
+                    interval after second spraying.</li>
+                <li>Polymyxa C1 effectively controlled the anthracnose disease on
+                    chili pepper cultivar Cabe Besar, and can be recommended for
+                    field testing before it is used widely in the field.</li>
+            </ol>
+            </div>
+            
+
+        {% elif predictions == "Leaf Spot" %}
+        
+        <div class="container" style="width:800px; text-align: justify;">
+            <h2 class="text-center" style="color: rgb(159, 255, 159);">More about Leaf Spot</h2>
+            <h4 class="text-dark">What is it?</h4>
+            <p>This is a common disease of chilli occurring on the foliage at any stage
+                of the growth.</p>
+                <h4 class="text-dark">What deficiency causes leaf curl in chilli leaf?</h4>
+                <p>The fungus attacks the foliage causing characteristic leaf spots and
+                    blight. Early blight is first observed on the plants as small, black lesions
+                    mostly on the older foliage.</p>
+                <h4 class="text-dark">Symptoms</h4>
+                <ul>
+                    <li>Leaves, fruits and stems are affected.</li>
+                    <li>Lesions on leaf begin as circular, water-soaked spots.</li>
+                    <li>Spots become necrotic with brown centre with chlorotic borders</li>
+                    <li>Tissue surrounding the spots may turn yellow.</li>
+                    <li>Lesions attain considerable size.</li>
+                </ul>
+                <h4 class="text-dark">How to Control</h4>
+                <ol>
+                    <li>Liquid copper fungicides such as Monterey Liqui-Cop or Bonide
+                        Liquid Copper Fungicide(fungicides like maneb which contains
+                        mancozeb (2.5 g/l), hexaconazole (1 ml/l), tebuconazole and
+                        difenoconazole).
+                        </li>
+                    <li>Apply every 7-10 days as needed to reduce fungal growth and
+                        spread.</li>
+                </ol>
+            </div>
+
+        {% elif predictions == "Powdery Mildew" %}
+
+        <div class="container" style="width:800px; text-align: justify;">
+            <h2 class="text-center" style="color: rgb(159, 255, 159);">More about Powdery Mildew</h2>
+            <h4 class="text-dark">What is it?</h4>
+            <p>The powdery mildew caused in chilli by Leveillula taurica
+                (Lev.) causing heavy yield loss ranging from 14 to 20 per cent, due to
+                severe defoliation and reduction in photosynthesis, size and number of
+                fruits per plant.</p>
+                <h4 class="text-dark">What deficiency causes leaf curl in chilli leaf?</h4>
+                <p>The powdery mildew caused in chilli by Leveillula Taurica, Powdery
+                    mildew, mainly caused by the fungus Podosphaera xanthii</p>
+                <h4 class="text-dark">Symptoms</h4>
+                <ul>
+                    <li>White powdery coating appears mostly on the lower surface</li>
+                    <li>Sometimes the powdery coating can also be seen on the upper
+                        surface.</li>
+                    <li>Correspondingly on the upper surface yellow patches are seen</li>
+                    <li>Drying and shedding of affected leaves.</li>
+                </ul>
+                <h4 class="text-dark">How to Control</h4>
+                <ol>
+                    <li>Spray wettable sulphur @ 3 g/l or carbendazim @ 1 g/l three
+                        sprays at 15 days interval from the first appearance of symptoms
+                        
+                        </li>
+                    <li>Spray Wettable sulphur 0.25% or Dinocap (Karathane) 0.05%</li>
+                </ol>
+            </div>
+
+        {% elif predictions == "Healthy" %}
+        <p>The leaf is healthy</p>
+        {% endif %}
+        {% else %}
+        <h2 class="display-4 text-dark font-weight-bold">{{err}}</h2>
+        {% endif %}
+        
+    </header>
+</div>
+{% endblock %}
